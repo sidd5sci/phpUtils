@@ -45,7 +45,6 @@ class phpUtils {
 				$lists = DB::select('*')->where('parent',$parent_id)->get();
 			}
 			foreach($lists as $item){
-				
 				if(!$parent_id){
 					$block = [
 						"name" => $item->name,
@@ -62,8 +61,6 @@ class phpUtils {
 						"id" => $item->id,
 					];
 				}
-				
-			
 				$block["childs"] = $this->multilevelItem($item->id);
 				$data[] = $block;
 				// dd($c);
@@ -193,4 +190,5 @@ class phpUtils {
 				return $records;
 			}
 		}
+		
 }
